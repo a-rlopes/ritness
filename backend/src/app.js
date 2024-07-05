@@ -17,7 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./Model/db");
 
-db.sequelize.sync()
+Object.keys(db).forEach(function (modelName) {
+  if (db[modelName].associate) {
+    db[modelName].associate(db)
+  }
+})
+
+db.sequelize.sync({force: true})
   .then(() => {
     console.log("Synced db.");
   })
