@@ -12,5 +12,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.exercise = require("./exercise.model.js")(sequelize, Sequelize);
+db.workoutPlan = require("./workoutPlan.model.js")(sequelize, Sequelize);
 
 module.exports = db;
