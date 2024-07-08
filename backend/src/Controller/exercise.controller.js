@@ -65,9 +65,21 @@ exports.update = (req, res) => {
   })
     .then(num => {
       if (num == 1) {
-        res.send({
-          message: "Exercise was updated successfully."
-        });
+          Exercise.findByPk(id)
+            .then(data => {
+              if (data) {
+                res.send(data);
+              } else {
+                res.status(404).send({
+                  message: `Cannot find Exercise with id=${id}.`
+                });
+              }
+            })
+            .catch(err => {
+              res.status(500).send({
+                message: "Error retrieving Exercise with id=" + id
+              });
+            });
       } else {
         res.send({
           message: `Cannot update Exercise with id=${id}. Maybe Exercise was not found or req.body is empty!`

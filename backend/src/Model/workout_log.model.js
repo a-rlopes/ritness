@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.DATE
         },
         note: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING(500)
         },
         workout_model_id: {
             type: Sequelize.INTEGER,
