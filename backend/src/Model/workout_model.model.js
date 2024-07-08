@@ -33,6 +33,7 @@ module.exports = (sequelize, Sequelize) => {
         WorkoutModel.belongsTo(models.workoutPlan, { foreignKey: 'workout_plan_id', as: 'workout_plan' });
         WorkoutModel.belongsTo(models.workoutType, { foreignKey: 'workout_type_id', as: 'workout_type' });
         WorkoutModel.hasMany(models.workoutLog, { foreignKey: 'workout_model_id' });
+        WorkoutModel.belongsToMany(models.exercise, { through: models.workoutModelHasExercise , foreignKey: 'workout_model_id'});
     };
     return WorkoutModel;
 };

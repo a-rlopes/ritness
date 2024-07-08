@@ -20,6 +20,9 @@ module.exports = (sequelize, Sequelize) => {
                 key: "id"
             }
         },
+        load: {
+            type: Sequelize.FLOAT
+        }
     });
 
     WorkoutLog.associate = (models) => {

@@ -17,6 +17,7 @@ module.exports = (sequelize, Sequelize) => {
 
   Exercise.associate = (models) => {
     Exercise.hasMany(models.set, { foreignKey: 'exercise_id' });
+    Exercise.belongsToMany(models.workoutModel, { through: models.workoutModelHasExercise , foreignKey: 'exercise_id'});
   };
 
   return Exercise;

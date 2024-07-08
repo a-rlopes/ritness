@@ -17,5 +17,6 @@ db.workoutLog = require("./workout_log.model.js")(sequelize, Sequelize);
 db.workoutModel = require("./workout_model.model.js")(sequelize, Sequelize);
 db.workoutPlan = require("./workout_plan.model.js")(sequelize, Sequelize);
 db.workoutType = require("./workout_type.model.js")(sequelize, Sequelize);
+db.workoutModelHasExercise = require("./workout_model_has_exercise.model.js")(sequelize, Sequelize);
 
 module.exports = db;
