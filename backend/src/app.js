@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const routes = require('./Routes');
 
 const app = express();
 
@@ -23,7 +24,7 @@ Object.keys(db).forEach(function (modelName) {
   }
 })
 
-db.sequelize.sync({force: true})
+db.sequelize.sync()
   .then(() => {
     console.log("Synced db.");
   })
@@ -32,12 +33,8 @@ db.sequelize.sync({force: true})
   });
 
 
-// Routers
-const exerciseRoutes = require("./Routes/exercise.routes");
-
-const router = (app) => {
-    app.use('/exercise', exerciseRoutes);
-};
+// Routes
+app.use('/', routes);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

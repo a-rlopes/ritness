@@ -8,10 +8,11 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey: true
     },
     name: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(100),
+      unique: true
     },
     description: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(800)
     }
   });
 
