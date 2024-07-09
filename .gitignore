@@ -1,3 +1,13 @@
+
+#dotenv
+backend/.env
+
+#node_modules
+Backend/node_modules
+
+#cache
+db/db-model.mwb.bak
+
 # Logs
 logs
 *.log
